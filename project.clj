@@ -1,4 +1,4 @@
-(defproject org.clojars.bouzuya/hatena.graph "0.1.0"
+(defproject org.clojars.bouzuya/hatena.graph "0.2.0"
   :description "Hatena::Graph API for Clojure."
   :url "http://github.com/bouzuya/clj-hatena-graph"
   :license {:name "Eclipse Public License"
