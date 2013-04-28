@@ -8,19 +8,31 @@ Hatena::Graph API wrapper for Clojure.
 [Clojars](http://clojars.org/org.clojars.bouzuya/hatena.graph).
 
 ```clojure
-[org.clojars.bouzuya/hatena.graph "0.1.0"]
+[org.clojars.bouzuya/hatena.graph "0.2.0"]
 ```
 
 ## Usage
+
+in your application:
 
 ```clojure
 (ns your-app.core
   (:require [hatena.graph :as graph))
 
-(binding [graph/*auth* {:username "user"
-                        :password "pass"}]
+(graph/with-auth "hatena-username" "hatena-password"
    (graph/get-data "graphname"))
 ```
+in the command-line:
+
+```sh
+HATENA_USERNAME=hatena-username \
+HATENA_PASSWORD=hatena-password \
+lein trampoline run graph-name <<EOT
+2013-04-27,64
+2013-04-28,256
+EOT
+```
+
 
 ## NOTE
 

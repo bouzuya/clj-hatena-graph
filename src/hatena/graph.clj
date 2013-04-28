@@ -92,3 +92,20 @@
     (when (= 200 (response :status))
       (json/read-str (response :body)))))
 
+(defmacro with-auth
+  [username password & body]
+  `(binding [*auth* {:username ~username
+                     :password ~password}]
+     ~@body))
+
+(defn -main
+  [& args]
+  (with-auth
+    (System/getenv "HATENA_USERNAME")
+    (System/getenv "HATENA_PASSWORD")
+    (let [graphname (first args)]
+      (doseq [line (line-seq (java.io.BufferedReader. *in*))]
+        (let [[date value] (.split line ",")]
+          (when (and date value)
+            (post-data graphname date value)))))))
+
