@@ -9,8 +9,9 @@
   (load-file "login.clj"))
 
 (deftest config-test
-  (testing "endpoint config GET/POST"
-    (binding [*auth* (get-auth)]
+  (testing
+    "endpoint config GET/POST"
+    (with-auth (:username (get-auth)) (:password (get-auth))
       (let [test-data {:graphcolor "FFFFFF"
                        :graphtype "bars"
                        :status "private"
@@ -31,8 +32,9 @@
                test-data))))))
 
 (deftest data-test
-  (testing "endpoint data GET/POST"
-    (binding [*auth* (get-auth)]
+  (testing
+    "endpoint data GET/POST"
+    (with-auth (:username (get-auth)) (:password (get-auth))
       (is (= (post-data "test" "4") true))
       (is (= (post-data "test" "2013-01-02" "5") true))
       (let [today (tf/unparse (tf/formatter "yyyy-MM-dd") (tl/local-now))

@@ -92,3 +92,9 @@
     (when (= 200 (response :status))
       (json/read-str (response :body)))))
 
+(defmacro with-auth
+  [username password & body]
+  `(binding [*auth* {:username ~username
+                     :password ~password}]
+     ~@body))
+
