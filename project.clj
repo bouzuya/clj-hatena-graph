@@ -7,5 +7,6 @@
                  [org.clojure/data.codec "0.1.0"]
                  [org.clojure/data.json "0.2.0"]
                  [clj-http "0.6.3"]
-                 [clj-time "0.4.4"]])
+                 [clj-time "0.4.4"]]
+  :main hatena.graph)
 

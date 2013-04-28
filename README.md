@@ -22,6 +22,17 @@ in your application:
 (graph/with-auth "hatena-username" "hatena-password"
    (graph/get-data "graphname"))
 ```
+in the command-line:
+
+```sh
+HATENA_USERNAME=hatena-username \
+HATENA_PASSWORD=hatena-password \
+lein trampoline run graph-name <<EOT
+2013-04-27,64
+2013-04-28,256
+EOT
+```
+
 
 ## NOTE
 
