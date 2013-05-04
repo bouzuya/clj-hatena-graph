@@ -3,7 +3,8 @@
             [clj-time.format :as tf]
             [clj-http.client :as http]
             [clojure.data.json :as json]
-            [clojure.data.codec.base64 :as base64]))
+            [clojure.data.codec.base64 :as base64])
+  (:gen-class))
 
 (def ^:dynamic *auth* {})
 
